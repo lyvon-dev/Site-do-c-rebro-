@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Neurônia — portal científico interativo sobre o cérebro humano, com mapa 3D, curiosidades e quiz. Projeto escolar desenvolvido por Hevllyn."/>
+<meta name="keywords" content="cérebro,neurociência,neurônios,sinapses,quiz,projeto escolar,hevllyn"/>
+<meta name="author" content="Hevllyn"/>
+<meta name="theme-color" content="#060912"/>
+<meta property="og:title" content="Neurônia | O Universo Dentro do Crânio"/>
+<meta property="og:description" content="Explore o cérebro humano em 3D, descubra curiosidades e teste seus conhecimentos em neurociência."/>
+<title>Neurônia | O Universo Dentro do Crânio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- ░░░ CANVAS DE FUNDO 3D (sinapses) ░░░ -->
+<canvas id="bg-canvas"></canvas>
+
+<!-- ░░░ NAVBAR ░░░ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">neur<span>ô</span>nia</a>
+    <ul class="nav-links">
+      <li><a href="#intro">Introdução</a></li>
+      <li><a href="#timeline">História</a></li>
+      <li><a href="#funcoes">Funções</a></li>
+      <li><a href="#curiosidades">Curiosidades</a></li>
+      <li><a href="#mapa3d">Mapa 3D</a></li>
+      <li><a href="#mitos">Mitos</a></li>
+      <li><a href="#glossario">Glossário</a></li>
+      <li><a href="#quiz">Quiz</a></li>
+      <li><a href="#sobre" class="nav-cta">Sobre o projeto</a></li>
+    </ul>
+    <button id="navHamburger" class="nav-hamburger" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div id="mobileMenu" class="mobile-menu">
+  <button id="mobileClose" class="mobile-close" aria-label="Fechar menu">×</button>
+  <a href="#intro">Introdução</a>
+  <a href="#timeline">História</a>
+  <a href="#funcoes">Funções</a>
+  <a href="#curiosidades">Curiosidades</a>
+  <a href="#mapa3d">Mapa 3D</a>
+  <a href="#mitos">Mitos</a>
+  <a href="#glossario">Glossário</a>
+  <a href="#quiz">Quiz</a>
+  <a href="#sobre">Sobre o projeto</a>
+</div>
+
+<!-- ░░░ HERO ░░░ -->
+<header id="home" class="section hero">
+  <div class="container hero-inner">
+    <p class="eyebrow fade-in">Portal de neurociência educacional</p>
+    <h1 class="fade-in">O órgão mais denso de informação do <span class="grad-text">universo conhecido</span> mora na sua cabeça.</h1>
+    <p class="hero-desc fade-in">86 bilhões de neurônios. Trilhões de sinapses. Um campo elétrico vivo que nunca dorme. Explore o cérebro humano em 3D, descubra curiosidades reais e teste o que você sabe.</p>
+    <div class="hero-actions fade-in">
+      <a href="#mapa3d" class="btn btn-primary">Explorar o cérebro 3D</a>
+      <a href="#quiz" class="btn btn-ghost">Fazer o quiz</a>
+    </div>
+    <div class="hero-stats fade-in">
+      <div class="stat"><span class="stat-num" data-target="86">0</span><span class="stat-suffix">bi</span><span class="stat-label">neurônios</span></div>
+      <div class="stat"><span class="stat-num" data-target="100">0</span><span class="stat-suffix">tri</span><span class="stat-label">sinapses</span></div>
+      <div class="stat"><span class="stat-num" data-target="20">0</span><span class="stat-suffix">%</span><span class="stat-label">da energia do corpo</span></div>
+      <div class="stat"><span class="stat-num" data-target="400">0</span><span class="stat-suffix">km/h</span><span class="stat-label">vel. dos impulsos</span></div>
+    </div>
+  </div>
+  <div class="scroll-hint">scroll <span>↓</span></div>
+</header>
+
+<!-- ░░░ INTRODUÇÃO ░░░ -->
+<section id="intro" class="section">
+  <div class="container">
+    <p class="section-label">01 — Introdução científica</p>
+    <h2 class="section-title">Uma máquina biológica sem paralelo</h2>
+    <p class="section-desc">Com aproximadamente 1,4 kg, o cérebro humano concentra a rede de comunicação mais rápida e densa que a ciência já catalogou — e ainda guarda mais perguntas do que respostas.</p>
+    <p class="section-desc" style="margin-top:14px;">Ele não é um órgão estático: é um sistema vivo, elétrico e químico, em constante reconstrução. Cada experiência, cada palavra lida, cada decisão tomada deixa um traço físico em algum lugar dessa rede — um princípio chamado plasticidade sináptica, que será explorado em detalhe nas seções seguintes.</p>
+    <div class="divider"></div>
+    <div class="intro-grid">
+      <article class="intro-card tilt-card">
+        <span class="intro-icon">◆</span>
+        <h3>Centro de comando</h3>
+        <p>Coordena todos os sistemas do corpo em tempo real, de batimentos cardíacos a movimentos voluntários, através de uma rede contínua de sinais elétricos e químicos que viaja por todo o corpo em frações de segundo.</p>
+      </article>
+      <article class="intro-card tilt-card">
+        <span class="intro-icon">◆</span>
+        <h3>Pensamento, emoção, ação</h3>
+        <p>Cada decisão, lembrança ou sentimento nasce da troca de impulsos entre regiões especializadas que conversam entre si em milissegundos, formando padrões únicos para cada pessoa.</p>
+      </article>
+      <article class="intro-card tilt-card">
+        <span class="intro-icon">◆</span>
+        <h3>Ativo durante o sono</h3>
+        <p>Mesmo no sono profundo, o cérebro consolida memórias, reorganiza conexões e remove resíduos metabólicos acumulados durante o dia, através do sistema glinfático.</p>
+      </article>
+      <article class="intro-card tilt-card">
+        <span class="intro-icon">◆</span>
+        <h3>Faminto por energia</h3>
+        <p>Representa cerca de 2% da massa corporal, mas consome perto de 20% de toda a energia produzida pelo organismo, mesmo em repouso completo.</p>
+      </article>
+      <article class="intro-card tilt-card">
+        <span class="intro-icon">◆</span>
+        <h3>Plasticidade ao longo da vida</h3>
+        <p>Diferente do que se pensava no século passado, o cérebro continua formando novas conexões — e até novos neurônios em certas regiões — na vida adulta.</p>
+      </article>
+      <article class="intro-card tilt-card">
+        <span class="intro-icon">◆</span>
+        <h3>Individual e irrepetível</h3>
+        <p>Mesmo gêmeos idênticos desenvolvem padrões cerebrais distintos: experiências, ambiente e aprendizado moldam cada cérebro de forma única.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ░░░ LINHA DO TEMPO ░░░ -->
+<section id="timeline" class="section section-alt">
+  <div class="container">
+    <p class="section-label">02 — Linha do tempo</p>
+    <h2 class="section-title">Como a ciência passou a entender o cérebro</h2>
+    <p class="section-desc">A neurociência é uma das áreas mais jovens da ciência moderna. Cada marco abaixo representa uma virada na forma como compreendemos a mente humana.</p>
+    <div class="divider"></div>
+  </div>
+  <div class="container">
+    <div class="timeline" id="timelineList"></div>
+  </div>
+</section>
+
+<!-- ░░░ FUNÇÕES CEREBRAIS ░░░ -->
+<section id="funcoes" class="section">
+  <div class="container">
+    <p class="section-label">03 — Funções cerebrais</p>
+    <h2 class="section-title">Um mapa funcional da mente</h2>
+    <p class="section-desc">O cérebro não é um bloco único: é dividido em regiões especializadas que cooperam constantemente. Conheça as principais áreas e o que cada uma controla.</p>
+    <div class="divider"></div>
+    <div class="funcoes-grid" id="funcoesGrid"></div>
+  </div>
+</section>
+
+<!-- ░░░ CURIOSIDADES ░░░ -->
+<section id="curiosidades" class="section section-alt">
+  <div class="container">
+    <p class="section-label">04 — Curiosidades</p>
+    <h2 class="section-title">Fatos que revelam o poder da mente</h2>
+    <p class="section-desc">Passe o cursor sobre os cartões para revelar a explicação científica de cada curiosidade.</p>
+    <div class="divider"></div>
+    <div class="curio-grid" id="curioGrid"></div>
+  </div>
+</section>
+
+<!-- ░░░ MAPA 3D ░░░ -->
+<section id="mapa3d" class="section">
+  <div class="container">
+    <p class="section-label">05 — Mapa cerebral interativo</p>
+    <h2 class="section-title">Clique nos nós e explore as regiões</h2>
+    <p class="section-desc">Cada ponto luminoso da rede 3D representa uma região cerebral real, com sua função principal. Arraste para girar, clique para revelar.</p>
+    <div class="divider"></div>
+  </div>
+  <div class="brain3d-wrap">
+    <canvas id="brain-canvas"></canvas>
+    <div id="brainInfo" class="brain-info">
+      <span class="brain-info-eyebrow">Selecione uma região</span>
+      <h3 id="brainInfoTitle">Toque em um nó da rede</h3>
+      <p id="brainInfoDesc">Os pontos luminosos representam áreas reais do cérebro. Clique em qualquer um deles para ver sua função.</p>
+    </div>
+    <div class="brain3d-hint">arraste para girar · clique no ponto</div>
+  </div>
+</section>
+
+<!-- ░░░ MITOS E FATOS ░░░ -->
+<section id="mitos" class="section section-alt">
+  <div class="container">
+    <p class="section-label">06 — Mitos e fatos</p>
+    <h2 class="section-title">Separando ciência de senso comum</h2>
+    <p class="section-desc">Clique em cada cartão para revelar se a afirmação é mito ou verdade.</p>
+    <div class="divider"></div>
+    <div class="mitos-grid" id="mitosGrid"></div>
+  </div>
+</section>
+
+<!-- ░░░ GLOSSÁRIO ░░░ -->
+<section id="glossario" class="section">
+  <div class="container">
+    <p class="section-label">07 — Glossário</p>
+    <h2 class="section-title">Termos essenciais de neurociência</h2>
+    <p class="section-desc">Clique em cada termo para virar o cartão e ler a definição.</p>
+    <div class="divider"></div>
+    <div class="glossario-grid" id="glossarioGrid"></div>
+  </div>
+</section>
+
+<!-- ░░░ QUIZ ░░░ -->
+<section id="quiz" class="section">
+  <div class="container">
+    <p class="section-label">08 — Quiz</p>
+    <h2 class="section-title">Teste seus conhecimentos sobre o cérebro</h2>
+    <p class="section-desc">10 perguntas com explicação científica detalhada após cada resposta.</p>
+    <div class="divider"></div>
+
+    <div class="quiz-meta">
+      <span>Pergunta <strong id="qNum">1</strong> de 10</span>
+      <span>Acertos: <strong id="qScore">0</strong></span>
+    </div>
+    <div class="quiz-progress"><div id="quizBar" class="quiz-progress-bar"></div></div>
+
+    <div id="quizCard" class="quiz-card">
+      <h3 id="quizQ"></h3>
+      <div id="quizOpts" class="quiz-opts"></div>
+      <p id="quizExp" class="quiz-exp"></p>
+      <button id="quizNext" class="btn btn-primary quiz-next">Próxima pergunta →</button>
+    </div>
+
+    <div id="quizFinal" class="quiz-final">
+      <span class="quiz-final-emoji" id="finalEmoji">🧠</span>
+      <h3>Resultado final: <span id="finalScore">0/10</span></h3>
+      <p id="finalMsg"></p>
+      <button id="quizReset" class="btn btn-ghost">Refazer o quiz</button>
+    </div>
+  </div>
+</section>
+
+<!-- ░░░ SOBRE / CRÉDITOS ░░░ -->
+<section id="sobre" class="section section-alt">
+  <div class="container sobre-grid">
+    <div>
+      <p class="section-label">09 — Sobre o projeto</p>
+      <h2 class="section-title">Neurônia</h2>
+      <p class="section-desc">Um portal educativo que une neurociência, design e interatividade 3D para tornar o estudo do cérebro humano envolvente e acessível. Todo o conteúdo foi escrito com base em conceitos consolidados de neurociência, psicologia cognitiva e biologia, organizados em nove seções que vão da introdução teórica à prática, com um quiz avaliativo ao final.</p>
+      <p class="section-desc" style="margin-top:14px;">O objetivo do projeto é mostrar que ciência e design não competem entre si — pelo contrário, uma boa visualização ajuda o cérebro do próprio leitor a reter melhor a informação, um fenômeno chamado de codificação dual.</p>
+    </div>
+    <dl class="sobre-list">
+      <div><dt>Nome do projeto</dt><dd>Neurônia</dd></div>
+      <div><dt>Desenvolvido por</dt><dd>Hevllyn</dd></div>
+      <div><dt>Categoria</dt><dd>Projeto escolar — Neurociência</dd></div>
+      <div><dt>Tecnologias</dt><dd>HTML5, CSS3, JavaScript, Three.js</dd></div>
+    </dl>
+  </div>
+  <p class="footer-credit">Neurônia — projeto escolar de neurociência educacional, desenvolvido por Hevllyn.</p>
+</section>
+
+<div id="toast" class="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="script.js"></script>
+</body>
+  </html>
